@@ -60,7 +60,8 @@ class RegisterController extends Controller
 //                ->letters()
 //                ->mixedCase()
 //                ->symbols()
-                ->numbers()],
+//                ->numbers()
+            ],
         ]);
     }
 
@@ -78,7 +79,7 @@ class RegisterController extends Controller
             'patronymic' => $data['patronymic'],
             'passport_info' => $data['passport_info'],
             'email' => $data['email'],
-            'role_id' => 1,
+            'role_id' => 0,
             'password' => Hash::make($data['password']),
         ]);
     }

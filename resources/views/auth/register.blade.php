@@ -89,7 +89,7 @@
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>Пароли не совпадают</strong>
+                                        <strong>Пароли не совпадают или введено менее 8 символов</strong>
                                     </span>
                                 @enderror
                             </div>

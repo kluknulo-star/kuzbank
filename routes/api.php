@@ -20,7 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//Route::prefix('admin')->middleware('CheckRole:admin')->group(function () {
-//    Route::apiResource('branches', BankBranchController::class);
-//    Route::apiResource('users', UserController::class);
-//});
+Route::prefix('admin')->middleware('CheckRole:admin')->group(function () {
+    Route::apiResource('branches', BankBranchController::class);
+    Route::apiResource('users', UserController::class);
+});
