@@ -18,8 +18,8 @@ class BankBranchFactory extends Factory
     public function definition(): array
     {
         return [
-            'city' => fake()->city(),
-            'street' => fake()->streetName(),
+            'city' => fake('ru_RU')->city(),
+            'street' => explode(' ',trim(fake('ru_RU')->streetName()))[0],
             'house' => rand(1, 190),
         ];
     }

@@ -24,13 +24,13 @@ class HomeController extends Controller
     public function index()
     {
         $homeRoleRoute = [
-            0 => 'client.home',
-            1 => 'worker.home',
-            2 => 'admin.users.index'
+            1 => 'client.home',
+            2 => 'worker.home',
+            3 => 'admin.users.index'
         ];
 
 
-        if(auth()->user()->role_id >= 0 && auth()->user()->role_id < 3)
+        if(auth()->user()->role_id > 0 && auth()->user()->role_id <= 3)
         {
             return redirect()->route($homeRoleRoute[auth()->user()->role_id]);
         }

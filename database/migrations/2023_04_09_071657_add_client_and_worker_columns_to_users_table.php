@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('bank_branch_id')->nullable();
-            $table->foreignId('bonus_rate_id')->nullable();
-            $table->foreignId('role_id')->nullable();
+            $table->foreignId('bank_branch_id')->nullable()->references('id')->on('bank_branches');
+            $table->foreignId('bonus_rate_id')->nullable()->references('id')->on('bonus_rates');
+            $table->foreignId('role_id')->nullable()->references('id')->on('roles');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

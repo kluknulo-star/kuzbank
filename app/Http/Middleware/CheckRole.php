@@ -16,15 +16,15 @@ class CheckRole
     public function handle(Request $request, Closure $next, string $role): Response
     {
         $roles = [
-            'admin' => [2],
-            'worker' => [1, 2],
-            'client' => [0, 1, 2]
+            'admin' => [3],
+            'worker' => [2, 3],
+            'client' => [1, 2, 3]
         ];
 
         $roleIds = $roles[$role] ?? [];
 
         if (!in_array(auth()->user()->role_id, $roleIds)) {
-            abort(403);
+            abort(403, );
         }
 
 

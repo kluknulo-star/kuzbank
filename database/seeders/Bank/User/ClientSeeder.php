@@ -36,7 +36,7 @@ class ClientSeeder extends Seeder
                 'passport_info' => rand(1000, 9999) . ' ' . rand(100000, 999999),
                 'bonus_rate_id' => rand(1, 4),
                 'password' => Hash::make('client@client.ru'),
-                'role_id' => 0,
+                'role_id' => 1,
             ],
             [
                 'name' => 'Абрам',
@@ -46,7 +46,7 @@ class ClientSeeder extends Seeder
                 'passport_info' => rand(1000, 9999) . ' ' . rand(100000, 999999),
                 'bonus_rate_id' => rand(1, 4),
                 'password' => Hash::make('client2@client.ru'),
-                'role_id' => 0,
+                'role_id' => 1,
             ],
             [
                 'name' => 'Иосиф',
@@ -56,7 +56,7 @@ class ClientSeeder extends Seeder
                 'passport_info' => rand(1000, 9999) . ' ' . rand(100000, 999999),
                 'bonus_rate_id' => rand(1, 4),
                 'password' => Hash::make('client3@client.ru'),
-                'role_id' => 0,
+                'role_id' => 1,
             ],
             [
                 'name' => 'Ульяна',
@@ -66,7 +66,7 @@ class ClientSeeder extends Seeder
                 'passport_info' => rand(1000, 9999) . ' ' . rand(100000, 999999),
                 'bonus_rate_id' => rand(1, 4),
                 'password' => Hash::make('client4@client.ru'),
-                'role_id' => 0,
+                'role_id' => 1,
             ],
             [
                 'name' => 'Андрей',
@@ -76,7 +76,7 @@ class ClientSeeder extends Seeder
                 'passport_info' => rand(1000, 9999) . ' ' . rand(100000, 999999),
                 'bonus_rate_id' => rand(1, 4),
                 'password' => Hash::make('client5@client.ru'),
-                'role_id' => 0,
+                'role_id' => 1,
             ],
             [
                 'name' => 'Изольда',
@@ -86,7 +86,7 @@ class ClientSeeder extends Seeder
                 'passport_info' => rand(1000, 9999) . ' ' . rand(100000, 999999),
                 'bonus_rate_id' => rand(1, 4),
                 'password' => Hash::make('client6@client.ru'),
-                'role_id' => 0,
+                'role_id' => 1,
             ],
             [
                 'name' => 'Антон',
@@ -96,7 +96,7 @@ class ClientSeeder extends Seeder
                 'passport_info' => rand(1000, 9999) . ' ' . rand(100000, 999999),
                 'bonus_rate_id' => rand(1, 4),
                 'password' => Hash::make('client7@client.ru'),
-                'role_id' => 0,
+                'role_id' => 1,
             ],
             [
                 'name' => 'Мирослав',
@@ -106,7 +106,7 @@ class ClientSeeder extends Seeder
                 'passport_info' => rand(1000, 9999) . ' ' . rand(100000, 999999),
                 'bonus_rate_id' => rand(1, 4),
                 'password' => Hash::make('client7@client.ru'),
-                'role_id' => 0,
+                'role_id' => 1,
             ],
             [
                 'name' => 'Владлен',
@@ -116,7 +116,7 @@ class ClientSeeder extends Seeder
                 'passport_info' => rand(1000, 9999) . ' ' . rand(100000, 999999),
                 'bonus_rate_id' => rand(1, 4),
                 'password' => Hash::make('client7@client.ru'),
-                'role_id' => 0,
+                'role_id' => 1,
             ],
             [
                 'name' => 'Радислав',
@@ -126,7 +126,7 @@ class ClientSeeder extends Seeder
                 'passport_info' => rand(1000, 9999) . ' ' . rand(100000, 999999),
                 'bonus_rate_id' => rand(1, 4),
                 'password' => Hash::make('client7@client.ru'),
-                'role_id' => 0,
+                'role_id' => 1,
             ],
         ]);
     }

@@ -21,7 +21,7 @@ class WorkerSeeder extends Seeder
                 'email' => 'workerr@worker.ru',
                 'bank_branch_id' => rand(1, 10),
                 'password' => Hash::make('worker@worker.ru'),
-                'role_id' => 1,
+                'role_id' => 2,
             ],
             [
                 'name' => 'Игорь',
@@ -29,7 +29,7 @@ class WorkerSeeder extends Seeder
                 'email' => 'worker2@worker.ru',
                 'bank_branch_id' => rand(1, 10),
                 'password' => Hash::make('worker2@worker.ru'),
-                'role_id' => 1,
+                'role_id' => 2,
             ],
             [
                 'name' => 'Анфиса',
@@ -37,7 +37,7 @@ class WorkerSeeder extends Seeder
                 'email' => 'worker3@worker.ru',
                 'bank_branch_id' => rand(1, 10),
                 'password' => Hash::make('worker3@worker.ru'),
-                'role_id' => 1,
+                'role_id' => 2,
             ],
             [
                 'name' => 'Август',
@@ -45,7 +45,7 @@ class WorkerSeeder extends Seeder
                 'email' => 'worker4@worker.ru',
                 'bank_branch_id' => rand(1, 10),
                 'password' => Hash::make('worker4@worker.ru'),
-                'role_id' => 1,
+                'role_id' => 2,
             ],
             [
                 'name' => 'Доминика',
@@ -53,7 +53,7 @@ class WorkerSeeder extends Seeder
                 'email' => 'worker5@worker.ru',
                 'bank_branch_id' => rand(1, 10),
                 'password' => Hash::make('worker5@worker.ru'),
-                'role_id' => 1,
+                'role_id' => 2,
             ]
         ]);
     }

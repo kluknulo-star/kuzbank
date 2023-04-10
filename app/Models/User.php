@@ -39,4 +39,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'role_id', 'id');
+    }
+
+    public function bankBranch()
+    {
+        return $this->belongsTo(BankBranch::class, 'bank_branch_id', 'id');
+    }
+
+    public function bonusRate()
+    {
+        return $this->belongsTo(BonusRate::class, 'bonus_rate_id', 'id');
+    }
 }

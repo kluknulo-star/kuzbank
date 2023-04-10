@@ -22,15 +22,15 @@ class UpdateUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'email|unique:users,email',
-            'name' => 'string',
-            'surname' => 'string',
-            'patronymic' => 'string',
-            'bank_branch_id' =>'integer',
-            'bonus_rate_id' =>'integer',
-            'passport_info' => 'string',
+            'email' => 'nullable|email',
+            'name' => 'nullable|string',
+            'surname' => 'nullable|string',
+            'patronymic' => 'nullable|string',
+            'bank_branch_id' => 'nullable|integer',
+            'bonus_rate_id' => 'nullable|integer',
+            'passport_info' => 'nullable|string',
             'password' => 'nullable|string|confirmed',
-            'role_id' => 'integer',
+            'role_id' => 'nullable|integer',
         ];
     }
 }

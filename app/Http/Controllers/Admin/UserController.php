@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateUserRequest;
 use App\Http\Resources\UserResource;
+use App\Models\BankBranch;
+use App\Models\BonusRate;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -58,7 +60,9 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $roles = Role::all();
-        return view('admin.users.edit', compact('user', 'roles'));
+        $bankBranches = BankBranch::all();
+        $bonusRates = BonusRate::all();
+        return view('admin.users.edit', compact('user', 'roles', 'bankBranches', 'bonusRates'));
     }
 
     /**
@@ -67,6 +71,14 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request, User $user)
     {
         $updateData = $request->validated();
+
+        foreach ($updateData as $key => $value)
+        {
+            if (!isset($value)){
+                unset($updateData[$key]);
+            }
+        }
+
         if (isset($updateData['password'])){
             $updateData['password'] = Hash::make($updateData['password']);
         }

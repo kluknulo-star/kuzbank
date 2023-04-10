@@ -15,11 +15,11 @@ class RoleSeeder extends Seeder
     {
         Role::insert([
             [
-                'title' => 'client',
+                'title' => 'Клиент',
             ], [
-                'title' => 'worker'
+                'title' => 'Сотрудник'
             ], [
-                'title' => 'admin'
+                'title' => 'Админ'
             ]
         ]);
     }

@@ -11,15 +11,14 @@
                     <div class="col-sm-6 d-flex align-items-center">
                         <h1 class="m-0 mr-2">Пользователь №{{$user->id}}</h1>
                         <button class="btn btn-light">
-                        <a href="{{route('admin.users.edit', ['user' => $user->id])}}"
-                           class="text-info mr-2"><i class="fas fa-paint-brush"></i></a>
+                            <a href="{{route('admin.users.edit', ['user' => $user->id])}}"
+                               class="text-info mr-2"><i class="fas fa-paint-brush"></i></a>
                         </button>
                         <form action="{{route('admin.users.destroy', ['user' => $user->id])}}" method="post">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-light">
-                                <a href="" class="text-danger" data-toggle="modal"
-                                   data-target="#deleteCategoryModal{{$user->id}}">
+                                <a href="" class="text-danger" >
                                     <i class="far fa-trash-alt"></i>
                                 </a>
                             </button>
@@ -35,28 +34,20 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12">
-                        <div class="card w-50">
+                    <div class="col-auto">
+                        <div class="card">
                             <!-- /.card-header -->
-                            <div class="card-body table-responsive p-0">
-                                <table class="table table-head-fixed text-nowrap">
-                                    <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Название</th>
-                                        <th>Email</th>
-                                        <th>Дата создания</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>{{$user->id}}</td>
-                                        <td>{{$user->name}}</td>
-                                        <td>{{$user->email}}</td>
-                                        <td>{{$user->created_at?? 'Неизвестно'}} </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                            <div class="px-4 py-4 card-body p-0">
+                                <p><b>ID:</b> {{$user->id}}</p>
+                                <p><b>Роль:</b> {{$user->role->title}}</p>
+                                <p><b>Фамилия:</b> {{$user->surname}}</p>
+                                <p><b>Имя:</b> {{$user->name}}</p>
+                                <p><b>Email:</b> {{$user->email}}</p>
+                                @isset($user->patronymic)<p><b>Отчество:</b> {{$user->patronymic}}</p>@endisset
+                                @isset($user->bank_branch_id)<p><b>Отделение банка:</b> {{'г.' . $user->bankBranch->city . ', ул.' . $user->bankBranch->street . ', д.' . $user->bankBranch->house}}</p>@endisset
+                                @isset($user->bonus_rate_id)<p><b>Бонусная система:</b> {{$user->bonusRate->title}}</p>@endisset
+                                @isset($user->passport_info)<p><b>Паспортные данные:</b> {{$user->passport_info}}</p>@endisset
+{{--                                <p><b>Дата создания:</b> {{$user->created_at?? 'Неизвестно'}}</p>--}}
                             </div>
                             <!-- /.card-body -->
                         </div>
@@ -71,32 +62,7 @@
         <!-- /.content -->
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="deleteCategoryModal{{$user->id}}" tabindex="-1" role="dialog"
-         aria-labelledby="deleteCategoryModal" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="deleteCategoryModalLabel">Удаление поста</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Вы действительно хотите удалить тег "{{$user->name}}"?
-                </div>
-                <div class="modal-footer">
-                    <form action="{{route('admin.users.destroy', ['user' => $user->id])}}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-                        <button type="submit" class="btn btn-danger">Удалить</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Modal -->
+
 
 @endsection
 
