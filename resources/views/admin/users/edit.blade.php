@@ -72,7 +72,7 @@
                             <div class="form-group w-50 mb-2">
                                 <label for="categorySelect">Выберите отделение(для сотрудника)</label>
                                 <select class="form-control" name="bank_branch_id">
-                                    <option selected ></option>
+                                    <option selected></option>
                                     @foreach($bankBranches as $bankBranch)
                                         <option
                                             {{$bankBranch->id == optional($user->bankBranch)->id ? ' selected ' : ''}}
@@ -88,7 +88,7 @@
                             <div class="form-group w-50 mb-2">
                                 <label for="categorySelect">Выберите бонусную систему(для клиента)</label>
                                 <select class="form-control" name="bonus_rate_id">
-                                    <option selected ></option>
+                                    <option selected></option>
                                     @foreach($bonusRates as $bonusRate)
                                         <option
                                             {{$bonusRate->id == optional($user->bonusRate)->id ? ' selected ' : ''}}
@@ -99,8 +99,13 @@
                                 <div class="text-danger">{{$message}}</div>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-dark">Обновить</button>
+                            <div class="row">
+                                <div class="col-auto">
+                                    <a href="{{route('admin.users.index')}}" class="btn btn-outline-dark">Вернуться</a>
+                                </div>
+                                <div class="col-auto">
+                                    <button type="submit" class="btn btn-dark">Обновить</button>
+                                </div>
                             </div>
                         </form>
                         {{-- Удалять по слову Ctrl + Backspace--}}

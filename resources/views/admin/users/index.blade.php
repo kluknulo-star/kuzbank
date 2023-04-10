@@ -25,11 +25,11 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-12">
-                        <div class="card w-50">
+                        <div class="card w-50 overflow-hidden">
                             <!-- /.card-header -->
                             <div class="card-body table-responsive p-0">
                                 <table class="table table-head-fixed text-nowrap">
-                                    <thead>
+                                    <thead class="table-light">
                                     <tr>
                                         <th>ID</th>
                                         <th>Название</th>
@@ -49,10 +49,12 @@
                                                 </button></a>
                                             </td>
                                             <td class="text-center">
+                                                <a href="{{route('admin.users.edit', ['user' => $user->id])}}"
+                                                   class="text-info">
                                                 <button class="btn">
-                                                    <a href="{{route('admin.users.edit', ['user' => $user->id])}}"
-                                                       class="text-info"><i class="fas fa-paint-brush"></i></a>
+                                                    <i class="fas fa-paint-brush"></i>
                                                 </button>
+                                                </a>
                                             </td>
                                             <td class="text-center">
                                                 <form action="{{route('admin.users.destroy', ['user' => $user->id])}}"
