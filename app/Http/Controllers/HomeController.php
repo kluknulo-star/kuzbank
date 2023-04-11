@@ -24,8 +24,8 @@ class HomeController extends Controller
     public function index()
     {
         $homeRoleRoute = [
-            1 => 'client.home',
-            2 => 'worker.home',
+            1 => 'client.bankDeposits.index',
+            2 => 'worker.bankDeposits.index',
             3 => 'admin.users.index'
         ];
 

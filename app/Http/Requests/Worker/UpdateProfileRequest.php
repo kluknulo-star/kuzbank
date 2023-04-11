@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\BankDeposit;
+namespace App\Http\Requests\Worker;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreBankDepositRequest extends FormRequest
+class UpdateProfileRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,12 +22,9 @@ class StoreBankDepositRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'client_id' => 'required|integer|exists:users,id',
-            'worker_id' => 'nullable|integer|exists:users,id',
-            'type_deposit_id' => 'required|integer|exists:type_deposits,id',
-            'is_approved' => 'nullable|boolean',
-            'amount' => 'required|integer',
-            'percent_bonus' => 'required|numeric',
+            'name' => 'nullable|string',
+            'surname' => 'nullable|string',
+            'patronymic' => 'nullable|string',
         ];
     }
 }

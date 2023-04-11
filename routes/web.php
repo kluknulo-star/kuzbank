@@ -1,10 +1,7 @@
 <?php
-
-use App\Http\Controllers\Admin\BankBranchController;
-use App\Http\Controllers\Admin\BankDepositController;
-use App\Http\Controllers\Admin\BonusRateController;
-use App\Http\Controllers\Admin\TypeDepositController;
-use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin;
+use App\Http\Controllers\Client;
+use App\Http\Controllers\Worker;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,13 +21,39 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::prefix('admin')->middleware(['auth', 'CheckRole:admin'])->name('admin.')->group(function () {
-//    Route::apiResource('branches', BankBranchController::class);
-    Route::Resource('users', UserController::class);
-    Route::Resource('bankBranches', BankBranchController::class);
-    Route::Resource('bonusRates', BonusRateController::class);
-    Route::Resource('typeDeposits', TypeDepositController::class);
-    Route::Resource('bankDeposits', BankDepositController::class);
+Route::middleware('auth')->group(function () {
+    Route::prefix('admin')->middleware('CheckRole:admin')->name('admin.')->group(function () {
+        Route::Resource('users', Admin\UserController::class);
+        Route::Resource('bankBranches', Admin\BankBranchController::class);
+        Route::Resource('bonusRates', Admin\BonusRateController::class);
+        Route::Resource('typeDeposits', Admin\TypeDepositController::class);
+        Route::Resource('bankDeposits', Admin\BankDepositController::class);
+    });
+
+    Route::prefix('worker')->middleware('CheckRole:worker')->name('worker.')->group(function () {
+        Route::get('/profile', [Worker\ProfileController::class, 'show'])->name('profile.show');
+        Route::get('/profile/edit', [Worker\ProfileController::class, 'edit'])->name('profile.edit');
+        Route::patch('/profile', [Worker\ProfileController::class, 'update'])->name('profile.update');
+        Route::Resource('bonusRates', Worker\BonusRateController::class)->only(['index', 'show']);
+        Route::Resource('typeDeposits', Worker\TypeDepositController::class)->only(['index', 'show']);
+        Route::Resource('bankBranches', Worker\BankBranchController::class)->only(['index', 'show']);
+        Route::get('/bankDeposits/archive', [Worker\BankDepositController::class, 'archive'])->name('bankDeposits.archive');
+        Route::Resource('bankDeposits', Worker\BankDepositController::class)->except(['edit']);
+    });
+
+    Route::prefix('client')->middleware('CheckRole:client')->name('client.')->group(function () {
+        Route::get('/profile', [Client\ProfileController::class, 'edit'])->name('profile.edit');
+        Route::get('/profile/edit', [Client\ProfileController::class, 'show'])->name('profile.show');
+        Route::patch('/profile', [Client\ProfileController::class, 'update'])->name('profile.update');
+        Route::Resource('bonusRates', Client\BonusRateController::class)->only(['index', 'show']);
+        Route::Resource('typeDeposits', Client\TypeDepositController::class)->only(['index', 'show']);
+        Route::get('/bankDeposits/archive', [Client\BankDepositController::class, 'archive'])->name('bankDeposits.archive');
+        Route::Resource('bankDeposits', Client\BankDepositController::class)->except(['edit', 'update']);
+    });
+
+
+
 });
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

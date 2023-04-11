@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\BankDeposit;
+namespace App\Http\Requests\Client;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -22,12 +22,9 @@ class StoreBankDepositRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'client_id' => 'required|integer|exists:users,id',
-            'worker_id' => 'nullable|integer|exists:users,id',
             'type_deposit_id' => 'required|integer|exists:type_deposits,id',
             'is_approved' => 'nullable|boolean',
             'amount' => 'required|integer',
-            'percent_bonus' => 'required|numeric',
         ];
     }
 }

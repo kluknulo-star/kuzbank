@@ -13,6 +13,6 @@ class BankDepositSeeder extends Seeder
      */
     public function run(): void
     {
-        BankDeposit::factory(10)->create();
+        BankDeposit::factory(100)->create();
     }
 }

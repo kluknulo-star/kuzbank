@@ -17,8 +17,8 @@ class CheckRole
     {
         $roles = [
             'admin' => [3],
-            'worker' => [2, 3],
-            'client' => [1, 2, 3]
+            'worker' => [2],
+            'client' => [1]
         ];
 
         $roleIds = $roles[$role] ?? [];
