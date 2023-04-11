@@ -32,7 +32,9 @@
                                     <thead class="table-light">
                                     <tr>
                                         <th>ID</th>
-                                        <th>Название</th>
+                                        <th>Фамилия</th>
+                                        <th>Имя</th>
+                                        <th>Роль</th>
                                         <th colspan="3" class="text-center">Действие</th>
                                     </tr>
                                     </thead>
@@ -40,7 +42,9 @@
                                     @foreach($users as $user)
                                         <tr>
                                             <td>{{$user->id}}</td>
+                                            <td>{{$user->surname}}</td>
                                             <td>{{$user->name}}</td>
+                                            <td>{{$user->role->title}}</td>
                                             <td class="text-center">
                                                 <a href="{{route('admin.users.show', ['user' => $user->id])}}"
                                                    class="text-dark">

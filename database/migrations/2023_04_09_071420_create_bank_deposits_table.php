@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('bank_deposits', function (Blueprint $table) {
             $table->id();
             $table->foreignId('client_id')->references('id')->on('users');
-            $table->foreignId('worker_id')->references('id')->on('users');
+            $table->foreignId('worker_id')->nullable()->references('id')->on('users');
             $table->foreignId('type_deposit_id')->references('id')->on('type_deposits');
             $table->boolean('is_approved')->nullable();
             $table->bigInteger('amount');

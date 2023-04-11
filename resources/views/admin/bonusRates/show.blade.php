@@ -43,7 +43,7 @@
                             <div class="px-4 py-4 card-body p-0">
                                 <p><b>ID:</b> {{$bonusRate->id}}</p>
                                 <p><b>Название:</b> {{$bonusRate->title}}</p>
-                                <p><b>Процент:</b> {{$bonusRate->percent}}</p>
+                                <p><b>Процент:</b> {{$bonusRate->percent}}%</p>
                             </div>
                             <!-- /.card-body -->
                         </div>

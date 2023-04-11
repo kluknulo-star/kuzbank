@@ -43,8 +43,8 @@
                             <div class="px-4 py-4 card-body p-0">
                                 <p><b>ID: </b> {{$typeDeposit->id}}</p>
                                 <p><b>Название: </b> {{$typeDeposit->title}}</p>
-                                <p><b>Процент(годовой): </b> {{$typeDeposit->percent}}</p>
-                                <p><b>Длительность(в мес.): </b> {{$typeDeposit->duration_month}}</p>
+                                <p><b>Процент(годовой): </b> {{$typeDeposit->percent}}%</p>
+                                <p><b>Длительность: </b> {{$typeDeposit->duration_month}} мес.</p>
                             </div>
                             <!-- /.card-body -->
                         </div>

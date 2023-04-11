@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\BankBranchController;
+use App\Http\Controllers\Admin\BankDepositController;
 use App\Http\Controllers\Admin\BonusRateController;
 use App\Http\Controllers\Admin\TypeDepositController;
 use App\Http\Controllers\Admin\UserController;
@@ -29,6 +30,7 @@ Route::prefix('admin')->middleware(['auth', 'CheckRole:admin'])->name('admin.')-
     Route::Resource('bankBranches', BankBranchController::class);
     Route::Resource('bonusRates', BonusRateController::class);
     Route::Resource('typeDeposits', TypeDepositController::class);
+    Route::Resource('bankDeposits', BankDepositController::class);
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -16,15 +16,15 @@ class TypeDepositSeeder extends Seeder
     {
         TypeDeposit::insert([
             [
-                'title' => 'быстрый',
+                'title' => 'Быстрый',
                 'percent' => 1.1,
                 'duration_month' => 6,
             ], [
-                'title' => 'обычный',
+                'title' => 'Размеренный',
                 'percent' => 2.3,
                 'duration_month' => 12,
             ], [
-                'title' => 'медленый',
+                'title' => 'Медленый',
                 'percent' => 4.4,
                 'duration_month' => 24,
             ], [

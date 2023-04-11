@@ -47,7 +47,7 @@
                                         <tr>
                                             <td>{{$bonusRate->id}}</td>
                                             <td>{{$bonusRate->title}}</td>
-                                            <td>{{$bonusRate->percent}}</td>
+                                            <td>{{$bonusRate->percent}}%</td>
                                             <td class="text-center">
                                                 <a href="{{route('admin.bonusRates.show', ['bonusRate' => $bonusRate->id])}}"
                                                    class="text-dark">

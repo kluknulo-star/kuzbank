@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\TypeDeposit\StoreTypeDepositRequest;
-use App\Http\Requests\TypeDeposit\UpdateTypeDepositRequest;
+use App\Http\Requests\BankDeposit\StoreBankDepositRequest;
+use App\Http\Requests\BankDeposit\UpdateBankDepositRequest;
+use App\Models\BankDeposit;
 use App\Models\TypeDeposit;
 
 class BankDepositController extends Controller
@@ -14,8 +15,8 @@ class BankDepositController extends Controller
      */
     public function index()
     {
-        $typeDeposits = TypeDeposit::paginate(10);
-        return view('admin.typeDeposits.index', compact('typeDeposits'));
+        $bankDeposits = BankDeposit::with(['client', 'worker', 'typeDeposit'])->paginate(10);
+        return view('admin.bankDeposits.index', compact('bankDeposits'));
     }
 
     /**
@@ -23,66 +24,62 @@ class BankDepositController extends Controller
      */
     public function create()
     {
-        return view('admin.typeDeposits.create');
+        $typeDeposits = TypeDeposit::all();
+        return view('admin.bankDeposits.create', compact('typeDeposits'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreTypeDepositRequest $request)
+    public function store(StoreBankDepositRequest $request)
     {
         $createData = $request->validated();
 
-        $typeDeposit = TypeDeposit::create($createData);
+        $bankDeposit = BankDeposit::create($createData);
 
-        return redirect()->route('admin.typeDeposits.show', $typeDeposit->id);
+        return redirect()->route('admin.bankDeposits.show', $bankDeposit->id);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(TypeDeposit $typeDeposit)
+    public function show(BankDeposit $bankDeposit)
     {
-        return view('admin.typeDeposits.show', compact('typeDeposit'));
+        return view('admin.bankDeposits.show', compact('bankDeposit'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(TypeDeposit $typeDeposit)
+    public function edit(BankDeposit $bankDeposit)
     {
-        return view('admin.typeDeposits.edit', compact('typeDeposit'));
+        return view('admin.bankDeposits.edit', compact('bankDeposit'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTypeDepositRequest $request, TypeDeposit $typeDeposit)
+    public function update(UpdateBankDepositRequest $request, BankDeposit $bankDeposit)
     {
         $updateData = $request->validated();
 
-        foreach ($updateData as $key => $value)
-        {
-            if (!isset($value)){
+        foreach ($updateData as $key => $value) {
+            if (!isset($value)) {
                 unset($updateData[$key]);
             }
         }
 
-        $typeDeposit->update($updateData);
+        $bankDeposit->update($updateData);
 
-        return redirect()->route('admin.typeDeposits.show', compact('typeDeposit'));
+        return redirect()->route('admin.bankDeposits.show', compact('bankDeposit'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(TypeDeposit $typeDeposit)
+    public function destroy(BankDeposit $bankDeposit)
     {
-        if (empty($typeDeposit->bankDeposits->toArray()))
-        {
-            $typeDeposit->delete();
-            return redirect()->route('admin.typeDeposits.index');
-        }
-        return redirect()->route('admin.typeDeposits.index')->withErrors('Не может быть удален, так как используется');
+        $bankDeposit->delete();
+        return redirect()->route('admin.bankDeposits.index');
     }
 }

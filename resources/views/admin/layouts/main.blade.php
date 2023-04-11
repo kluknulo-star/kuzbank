@@ -42,7 +42,7 @@
                             <a class="nav-link" href="{{ route('admin.users.index') }}">Пользователи</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Вклады клиентов</a>
+                            <a class="nav-link" href="{{ route('admin.bankDeposits.index') }}">Вклады клиентов</a>
                         </li>
                     </ul>
 

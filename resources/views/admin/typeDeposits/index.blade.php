@@ -39,7 +39,7 @@
                                         <th>ID</th>
                                         <th>Название</th>
                                         <th>Процент(годовой)</th>
-                                        <th>Длительность(в мес.)</th>
+                                        <th>Длительность</th>
                                         <th colspan="3" class="text-center">Действие</th>
                                     </tr>
                                     </thead>
@@ -48,8 +48,8 @@
                                         <tr>
                                             <td>{{$typeDeposit->id}}</td>
                                             <td>{{$typeDeposit->title}}</td>
-                                            <td>{{$typeDeposit->percent}}</td>
-                                            <td>{{$typeDeposit->duration_month}}</td>
+                                            <td>{{$typeDeposit->percent}}%</td>
+                                            <td>{{$typeDeposit->duration_month}} мес.</td>
                                             <td class="text-center">
                                                 <a href="{{route('admin.typeDeposits.show', ['typeDeposit' => $typeDeposit->id])}}"
                                                    class="text-dark">
