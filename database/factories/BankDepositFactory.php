@@ -38,6 +38,7 @@ class BankDepositFactory extends Factory
             'worker_id' => rand(2, 6),
             'type_deposit_id' => rand(1, 5),
             'amount' => rand(10000, 9000000),
+            'percent' => rand(2, 20) / 10.0,
             'is_approved' => $approved[rand(0, count($approved) - 1)],
             'closed_at' => Carbon::now()->add($months[rand(0, count($months) - 1)], 'month'),
         ];

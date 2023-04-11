@@ -12,4 +12,17 @@ class BankDeposit extends Model
     use SoftDeletes;
     protected $guarded = false;
 
+    public function client()
+    {
+        return $this->hasOne(User::class, 'client_id', 'id');
+    }
+    public function worker()
+    {
+        return $this->hasOne(User::class, 'worker_id', 'id');
+    }
+
+    public function typeDeposit()
+    {
+        return $this->hasOne(TypeDeposit::class, 'type_deposit_id', 'id');
+    }
 }

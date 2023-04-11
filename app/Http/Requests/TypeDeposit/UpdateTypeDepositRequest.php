@@ -23,7 +23,7 @@ class UpdateTypeDepositRequest extends FormRequest
     {
         return [
             'title' => 'nullable|string',
-            'percent' => 'nullable|integer',
+            'percent' => 'nullable|numeric',
             'duration_month' => 'nullable|integer',
         ];
     }

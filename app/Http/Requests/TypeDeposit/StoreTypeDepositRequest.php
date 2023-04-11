@@ -23,7 +23,7 @@ class StoreTypeDepositRequest extends FormRequest
     {
         return [
             'title' => 'required|string',
-            'percent' => 'required|integer',
+            'percent' => 'required|numeric',
             'duration_month' => 'required|integer',
         ];
     }

@@ -23,7 +23,7 @@ class UpdateBonusRateRequest extends FormRequest
     {
         return [
             'title' => 'nullable|string',
-            'percent' => 'nullable|integer',
+            'percent' => 'nullable|numeric',
         ];
     }
 }

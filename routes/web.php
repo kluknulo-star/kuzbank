@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\BankBranchController;
+use App\Http\Controllers\Admin\BonusRateController;
+use App\Http\Controllers\Admin\TypeDepositController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,9 +23,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::prefix('admin')->middleware('CheckRole:admin')->name('admin.')->group(function () {
+Route::prefix('admin')->middleware(['auth', 'CheckRole:admin'])->name('admin.')->group(function () {
 //    Route::apiResource('branches', BankBranchController::class);
     Route::Resource('users', UserController::class);
+    Route::Resource('bankBranches', BankBranchController::class);
+    Route::Resource('bonusRates', BonusRateController::class);
+    Route::Resource('typeDeposits', TypeDepositController::class);
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

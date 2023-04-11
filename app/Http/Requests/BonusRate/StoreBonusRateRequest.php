@@ -23,7 +23,7 @@ class StoreBonusRateRequest extends FormRequest
     {
         return [
             'title' => 'required|string',
-            'percent' => 'required|integer',
+            'percent' => 'required|numeric',
         ];
     }
 }

@@ -29,16 +29,20 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Отделения банков</a>
+                            <a class="nav-link" href="{{ route('admin.bankBranches.index') }}">Отделения банков</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Бонусная программа</a>
+                            <a class="nav-link" href="{{ route('admin.bonusRates.index') }}">Бонусная программа</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.typeDeposits.index') }}">Виды вкладов</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Пользователи</a>
+                            <a class="nav-link" href="{{ route('admin.users.index') }}">Пользователи</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Вклады</a>
+                            <a class="nav-link" href="{{ route('login') }}">Вклады клиентов</a>
                         </li>
                     </ul>
 
@@ -58,6 +62,9 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item">
+                                <b><a class="nav-link">{{auth()->user()->role->title}}</a></b>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}

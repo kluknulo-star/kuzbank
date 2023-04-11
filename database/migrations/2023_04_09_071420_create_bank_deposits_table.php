@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('type_deposit_id')->references('id')->on('type_deposits');
             $table->boolean('is_approved')->nullable();
             $table->bigInteger('amount');
+            $table->float('percent');
             $table->timestamps();
             $table->timestamp('closed_at');
             $table->softDeletes();

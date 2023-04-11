@@ -12,4 +12,8 @@ class BonusRate extends Model
     use SoftDeletes;
     protected $guarded = false;
 
+    public function users()
+    {
+        return $this->hasMany(User::class, 'bank_rate_id', 'id');
+    }
 }

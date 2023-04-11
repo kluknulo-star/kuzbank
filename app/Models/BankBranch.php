@@ -11,4 +11,9 @@ class BankBranch extends Model
     use HasFactory;
     use SoftDeletes;
     protected $guarded = false;
+
+    public function users()
+    {
+        return $this->hasMany(User::class, 'bank_branch_id', 'id');
+    }
 }
