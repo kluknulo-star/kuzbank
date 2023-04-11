@@ -23,7 +23,7 @@ Auth::routes();
 
 Route::middleware('auth')->group(function () {
     Route::prefix('admin')->middleware('CheckRole:admin')->name('admin.')->group(function () {
-        Route::Resource('users', Admin\UserController::class);
+        Route::Resource('users', Admin\UserController::class)->except(['create', 'store']);
         Route::Resource('bankBranches', Admin\BankBranchController::class);
         Route::Resource('bonusRates', Admin\BonusRateController::class);
         Route::Resource('typeDeposits', Admin\TypeDepositController::class);

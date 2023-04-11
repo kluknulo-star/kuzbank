@@ -48,6 +48,13 @@
                                 <div class="text-danger">{{$message}}</div>
                                 @enderror
                             </div>
+                            <div class="form-group w-50 mb-2">
+                                <label>Email</label>
+                                <input type="email" class="form-control" name="email" value="{{$user->email}}">
+                                @error('email')
+                                <div class="text-danger">{{$message}}</div>
+                                @enderror
+                            </div>
                             <div class="row">
                                 <div class="col-auto">
                                     <a href="{{route('worker.profile.show')}}" class="btn btn-outline-dark">Вернуться</a>

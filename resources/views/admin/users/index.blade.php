@@ -12,10 +12,6 @@
                         <h1 class="m-0">Пользователи</h1>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
-                <div class="col-12">
-                    <a class="btn btn-dark" href="{{route('admin.users.create')}}" role="button">Добавить
-                        пользователя</a>
-                </div>
             </div><!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->

@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Worker;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateProfileRequest extends FormRequest
 {
@@ -25,6 +26,10 @@ class UpdateProfileRequest extends FormRequest
             'name' => 'nullable|string',
             'surname' => 'nullable|string',
             'patronymic' => 'nullable|string',
+            'email' => [
+                'nullable',
+                Rule::unique('users')->ignore(auth()->id(), 'id')
+            ]
         ];
     }
 }
