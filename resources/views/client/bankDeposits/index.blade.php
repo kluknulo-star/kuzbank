@@ -37,7 +37,6 @@
                                     <thead class="table-light">
                                     <tr>
                                         <th>ID</th>
-                                        <th>Клиент</th>
                                         <th>Сотрудник</th>
                                         <th>Тип вклада</th>
                                         <th>Процент</th>
@@ -50,10 +49,12 @@
                                     @foreach($bankDeposits as $bankDeposit)
                                         <tr>
                                             <td>{{$bankDeposit->id}}</td>
-                                            <td>{{$bankDeposit->client->surname . ' ' . $bankDeposit->client->name}}</td>
+{{--                                            <td>{{$bankDeposit->client->surname . ' ' . $bankDeposit->client->name}}</td>--}}
                                             <td>
                                                 @isset($bankDeposit->worker)
                                                     {{$bankDeposit->worker->surname . ' ' . $bankDeposit->worker->name}}
+                                                @else
+                                                    Не назначен
                                                 @endisset
                                             </td>
                                             <td>
