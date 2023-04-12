@@ -14,6 +14,6 @@ class BonusRate extends Model
 
     public function users()
     {
-        return $this->hasMany(User::class, 'bank_rate_id', 'id');
+        return $this->hasMany(User::class, 'bonus_rate_id', 'id');
     }
 }
