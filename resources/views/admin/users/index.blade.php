@@ -56,19 +56,19 @@
                                                 </button>
                                                 </a>
                                             </td>
-                                            <td class="text-center">
-                                                <form action="{{route('admin.users.destroy', ['user' => $user->id])}}"
-                                                      method="post">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn">
-                                                        <a href="" class="text-danger" data-toggle="modal"
-                                                           data-target="#deleteCategoryModal{{$user->id}}">
-                                                            <i class="far fa-trash-alt"></i>
-                                                        </a>
-                                                    </button>
-                                                </form>
-                                            </td>
+{{--                                            <td class="text-center">--}}
+{{--                                                <form action="{{route('admin.users.destroy', ['user' => $user->id])}}"--}}
+{{--                                                      method="post">--}}
+{{--                                                    @csrf--}}
+{{--                                                    @method('DELETE')--}}
+{{--                                                    <button type="submit" class="btn">--}}
+{{--                                                        <a href="" class="text-danger" data-toggle="modal"--}}
+{{--                                                           data-target="#deleteCategoryModal{{$user->id}}">--}}
+{{--                                                            <i class="far fa-trash-alt"></i>--}}
+{{--                                                        </a>--}}
+{{--                                                    </button>--}}
+{{--                                                </form>--}}
+{{--                                            </td>--}}
                                         </tr>
 
                                     @endforeach

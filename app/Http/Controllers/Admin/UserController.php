@@ -93,7 +93,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        if (auth()->id() !== $user->id)
+        if (auth()->id() !== $user->id && $user->bankBranch())
         {
             $user->delete();
         }
