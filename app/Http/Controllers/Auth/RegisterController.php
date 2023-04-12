@@ -80,6 +80,7 @@ class RegisterController extends Controller
             'passport_info' => $data['passport_info'],
             'email' => $data['email'],
             'role_id' => 1,
+            'bonus_rate_id' => 1,
             'password' => Hash::make($data['password']),
         ]);
     }
