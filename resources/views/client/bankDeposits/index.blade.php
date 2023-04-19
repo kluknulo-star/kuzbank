@@ -29,8 +29,8 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row mb-2">
-                    <div class="col-12">
-                        <div class="card w-75 overflow-hidden">
+                    <div class="col-auto">
+                        <div class="card overflow-hidden">
                             <!-- /.card-header -->
                             <div class="card-body table-responsive p-0">
                                 <table class="table table-head-fixed text-nowrap">

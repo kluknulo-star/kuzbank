@@ -15,7 +15,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Оформленные вклады</h1>
+                        <h1 class="m-0">Вклады</h1>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -26,8 +26,8 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row mb-2">
-                    <div class="col-12">
-                        <div class="card w-75 overflow-hidden">
+                    <div class="col-auto">
+                        <div class="card overflow-hidden">
                             <!-- /.card-header -->
                             <div class="card-body table-responsive p-0">
                                 <table class="table table-head-fixed text-nowrap">

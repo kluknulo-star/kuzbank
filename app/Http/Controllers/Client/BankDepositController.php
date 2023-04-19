@@ -31,7 +31,7 @@ class BankDepositController extends Controller
             ->where('client_id', '=', auth()->id())
             ->where('is_approved', '=', true)
             ->paginate(10);
-        return view('client.bankDeposits.index', compact('bankDeposits'));
+        return view('client.bankDeposits.archive', compact('bankDeposits'));
     }
 
     /**
