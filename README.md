@@ -5,6 +5,8 @@ KuzBank - банк выдающий вклады под индивидуальн
 
 ```composer install```
 
+```npm run build```
+
 ```cp .env.example .env```
 
 ```php artisan key:generate```
